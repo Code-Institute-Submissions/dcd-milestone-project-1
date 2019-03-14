@@ -40,7 +40,7 @@ def update_recipes(recipes_id):
         'category_name': request.form.get['category_name'],
         'recipes_method': request.form.get['recipes_method'],
     })
-    return redirect(url_for('get_recipess'))
+    return redirect(url_for('get_recipes'))
 
 @app.route('/recipes/<recipes_id>')
 def view_recipes(recipes_id):
@@ -51,7 +51,7 @@ def view_recipes(recipes_id):
 @app.route('/delete_recipes/<recipes_id>')
 def delete_recipes(recipes_id):
     mongo.db.recipess.remove({'_id': ObjectId(recipes_id)})
-    return redirect(url_for('get_recipess'))
+    return redirect(url_for('get_recipes'))
 
 @app.route('/delete_category/<category_id>')
 def delete_category(category_id):
@@ -65,7 +65,7 @@ def get_categories():
 
 @app.route('/add-category')
 def add_category():
-    return render_template('newcategory.html')
+    return render_template('addcategory.html')
 
 @app.route('/add-category', methods=['POST'])
 def insert_category():
