@@ -11,9 +11,9 @@ mongo = PyMongo(app)
 
 @app.route('/')
 @app.route('/get_recipes')
-def get_recipess():
+def get_recipes():
     return render_template("recipes.html",
-    recipess=mongo.db.recipess.find())
+    recipes=mongo.db.recipes.find())
 
 @app.route('/add_recipes')
 def add_recipes():
@@ -21,20 +21,20 @@ def add_recipes():
 
 @app.route('/insert_recipes', methods=['POST'])
 def insert_recipes():
-    recipess = mongo.db.recipess
-    recipess.insert_one(request.form.to_dict())
+    recipes = mongo.db.recipes
+    recipes.insert_one(request.form.to_dict())
     return redirect(url_for('get_recipes'))
 
 @app.route('/edit_recipes/<recipes_id>')
 def edit_recipes(recipes_id):
-    the_recipes = mongo.db.recipess.find_one({"_id": ObjectId(recipes_id)})
+    the_recipes = mongo.db.recipes.find_one({"_id": ObjectId(recipes_id)})
     all_categories = mongo.db.categories.find()
     return render_template('editrecipes.html', recipes=the_recipes, categories=all_categories)
 
 @app.route('/update_recipes/<recipes_id>', methods=["POST"])
 def update_recipes(recipes_id):
-    recipess = mongo.db.recipess
-    recipess.update({'_id': ObjectId(recipes_id)},
+    recipes = mongo.db.recipes
+    recipes.update({'_id': ObjectId(recipes_id)},
     {
         'recipes_name': request.form.get['recipes_name'],
         'category_name': request.form.get['category_name'],
@@ -44,13 +44,13 @@ def update_recipes(recipes_id):
 
 @app.route('/recipes/<recipes_id>')
 def view_recipes(recipes_id):
-    the_recipes = mongo.db.recipess.find_one({"_id": ObjectId(recipes_id)})
+    the_recipes = mongo.db.recipes.find_one({"_id": ObjectId(recipes_id)})
     return render_template('recipes.html', recipes=the_recipes)
 
 
 @app.route('/delete_recipes/<recipes_id>')
 def delete_recipes(recipes_id):
-    mongo.db.recipess.remove({'_id': ObjectId(recipes_id)})
+    mongo.db.recipes.remove({'_id': ObjectId(recipes_id)})
     return redirect(url_for('get_recipes'))
 
 @app.route('/delete_category/<category_id>')
