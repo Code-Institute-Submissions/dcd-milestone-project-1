@@ -4,7 +4,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
-app.config['MONGO_DBNAME'] = 'task_manager'
+app.config['MONGO_DBNAME'] = 'recipe_book'
 app.config['MONGO_URI'] = 'mongodb+srv://admin:Arnold21!@recipe-book-ky5u3.mongodb.net/recipes-book?retryWrites=true'
 
 mongo = PyMongo(app)
@@ -18,7 +18,7 @@ def get_recipes():
 def add_recipe():
     return render_template('addrecipes.html', categories=mongo.db.categories.find())
 
-@app.route('/insert_recipes', methods=['POST'])
+@app.route('/insert_recipe', methods=['POST'])
 def insert_recipes():
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
