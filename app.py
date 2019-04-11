@@ -19,7 +19,7 @@ def add_recipe():
     return render_template('addrecipe.html', categories=mongo.db.categories.find())
 
 @app.route('/insert_recipe', methods=['POST'])
-def insert_recipes():
+def insert_recipe():
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
     return redirect(url_for('get_recipes'))
