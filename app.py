@@ -62,11 +62,11 @@ def get_categories():
     return render_template('categories.html',
     categories=mongo.db.categories.find())
 
-@app.route('/add-category')
+@app.route('/add_category')
 def add_category():
     return render_template('addcategory.html')
 
-@app.route('/add-category', methods=['POST'])
+@app.route('/add_category', methods=['POST'])
 def insert_category():
     categories = mongo.db.categories
     categories.insert_one(request.form.to_dict())
