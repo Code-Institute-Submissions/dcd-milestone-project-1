@@ -5,7 +5,7 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 app.config['MONGO_DBNAME'] = 'recipe_book'
-app.config['MONGO_URI'] = 'mongodb+srv://admin:Arnold21!@recipe-book-ky5u3.mongodb.net/recipes-book?retryWrites=true'
+app.config['MONGO_URI'] = 'mongodb+srv://admin:Arnold21!@recipe-book-ky5u3.mongodb.net/recipe-book?retryWrites=true'
 
 mongo = PyMongo(app)
 
@@ -81,7 +81,7 @@ def edit_category(category_id):
 def update_category(category_id):
     mongo.db.categories.update(
         {'_id': ObjectId(category_id)},
-        {'category_name': request.form.get['category_name']})
+        {'category': request.form.get['category']})
     return redirect(url_for('get_categories'))
 
 if __name__ == '__main__':
