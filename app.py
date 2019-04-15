@@ -42,10 +42,10 @@ def update_recipe(recipes_id):
     })
     return redirect(url_for('get_recipes'))
 
-@app.route('/recipes/<recipes_id>')
-def view_recipes(recipes_id):
-    the_recipes = mongo.db.recipes.find_one({"_id": ObjectId(recipes_id)})
-    return render_template('recipes.html', recipes=the_recipes)
+@app.route('/view_recipe/<recipes_id>')
+def view_recipe(recipes_id):
+    the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipes_id)})
+    return render_template('viewrecipe.html', recipes=the_recipe)
 
 
 @app.route('/delete_recipes/<recipes_id>')

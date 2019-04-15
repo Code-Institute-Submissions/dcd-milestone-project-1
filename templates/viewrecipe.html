@@ -1,26 +1,30 @@
 {% extends 'base.html'%}
 {% block content %}
 
-<h3>{{recipes.recipe_name}}</h3>
+
+<h3>{{recipes.name.capitalize()}}</h3>
 <div class="row">
     <div class="input-field col s12">
         <i class="material-icons prefix">poll</i>
-        <label>Recipe Category</label>
+        <label>Category</label>
         <p>{{recipes.category}}</p>
     </div>
 </div>
 <div class="row">
     <div class="input-field col s12">
+        <i class="material-icons prefix">assignment</i>
         <p>{{recipes.name}}</p>
     </div>
 </div>
 <div class="row">
     <div class="input-field col s12">
+        <i class="material-icons prefix">subject</i>
         <p>{{recipes.ingredients}}</p>
     </div>
 </div>
 <div class="row">
     <div class="input-field col s12">
+        <i class="material-icons prefix">subject</i>
         <p>{{recipes.method}}</p>
     </div>
 </div>
