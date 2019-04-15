@@ -31,14 +31,14 @@ def edit_recipes(recipes_id):
     all_categories = mongo.db.categories.find()
     return render_template('editrecipe.html', recipes=the_recipes, categories=all_categories)
 
-@app.route('/update_recipes/<recipes_id>', methods=["POST"])
-def update_recipes(recipes_id):
+@app.route('/update_recipe/<recipes_id>', methods=["POST"])
+def update_recipe(recipes_id):
     recipes = mongo.db.recipes
     recipes.update({'_id': ObjectId(recipes_id)},
     {
-        'name': request.form.get['name'],
-        'category': request.form.get['category'],
-        'method': request.form.get['method'],
+        'name': request.form.get('name'),
+        'category': request.form.get('category'),
+        'method': request.form.get('method'),
     })
     return redirect(url_for('get_recipes'))
 
@@ -67,7 +67,7 @@ def get_categories():
 def add_category():
     return render_template('addcategory.html')
 
-@app.route('/add_category', methods=['POST'])
+@app.route('/insert_category', methods=['POST'])
 def insert_category():
     categories = mongo.db.categories
     categories.insert_one(request.form.to_dict())
