@@ -2,35 +2,41 @@
 {% block content %}
 
 
-<h3>{{recipes.name.capitalize()}}</h3>
+<h3 class="header-color">{{recipes.name.capitalize()}}</h3>
 <div class="row">
-    <div class="text-field col s12">
-        <i class="material-icons prefix">poll</i>
-        <label>Category</label>
-        <p class="recipe-text">{{recipes.category.capitalize()}}</p>
-    </div>
+    <form class="col s12">
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">poll</i>
+                <input id="disabled" type="text" class="validate" disabled value="{{recipes.category.capitalize()}}">
+                <label for="disabled">Category</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">assignment</i>
+                <input id="disabled" type="text" class="validate" disabled value="{{recipes.name.capitalize()}}">
+                <label for="disabled">Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subject</i>
+                <textarea id="disabled" type="text" class="materialize-textarea readonly-color" disabled>{{recipes.ingredients.capitalize()}}</textarea>
+                <label for="disabled">Ingredients</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">restaurant</i>
+                <textarea id="disabled" type="text" class="materialize-textarea" disabled>{{recipes.method.capitalize()}}</textarea>
+                <label for="disabled">Method</label>
+            </div>
+        </div>
+        <div class="row">
+            <a href="{{url_for('delete_recipes', recipes_id=recipes._id)}}" class="waves-effect waves-light btn btn_small">Delete</a>
+        </div>
+    </form>
 </div>
-<div class="row">
-    <div class="text-field col s12">
-        <i class="material-icons prefix">assignment</i>
-        <label>Name</label>
-        <p class="recipe-text">{{recipes.name.capitalize()}}</p>
-    </div>
-</div>
-<div class="row">
-    <div class="text-field col s12">
-        <i class="material-icons prefix">subject</i>
-        <label>Ingredients</label>
-        <p class="recipe-text">{{recipes.ingredients.capitalize()}}</p>
-    </div>
-</div>
-<div class="row">
-    <div class="text-field col s12">
-        <i class="material-icons prefix">restaurant</i>
-        <label>Method</label>
-        <p class="recipe-text">{{recipes.method.capitalize()}}</p>
-    </div>
-</div>
-
 
 {% endblock %}
