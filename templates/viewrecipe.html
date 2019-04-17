@@ -4,28 +4,31 @@
 
 <h3>{{recipes.name.capitalize()}}</h3>
 <div class="row">
-    <div class="input-field col s12">
+    <div class="text-field col s12">
         <i class="material-icons prefix">poll</i>
         <label>Category</label>
-        <p>{{recipes.category}}</p>
+        <p class="recipe-text">{{recipes.category.capitalize()}}</p>
     </div>
 </div>
 <div class="row">
-    <div class="input-field col s12">
+    <div class="text-field col s12">
         <i class="material-icons prefix">assignment</i>
-        <p>{{recipes.name}}</p>
+        <label>Name</label>
+        <p class="recipe-text">{{recipes.name.capitalize()}}</p>
     </div>
 </div>
 <div class="row">
-    <div class="input-field col s12">
+    <div class="text-field col s12">
         <i class="material-icons prefix">subject</i>
-        <p>{{recipes.ingredients}}</p>
+        <label>Ingredients</label>
+        <p class="recipe-text">{{recipes.ingredients.capitalize()}}</p>
     </div>
 </div>
 <div class="row">
-    <div class="input-field col s12">
-        <i class="material-icons prefix">subject</i>
-        <p>{{recipes.method}}</p>
+    <div class="text-field col s12">
+        <i class="material-icons prefix">restaurant</i>
+        <label>Method</label>
+        <p class="recipe-text">{{recipes.method.capitalize()}}</p>
     </div>
 </div>
 
