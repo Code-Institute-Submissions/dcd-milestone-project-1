@@ -39,6 +39,7 @@ def update_recipe(recipes_id):
         'name': request.form.get('name'),
         'category': request.form.get('category'),
         'method': request.form.get('method'),
+        'ingredients': request.form.get('ingredients'),
     })
     return redirect(url_for('get_recipes'))
 
@@ -46,6 +47,26 @@ def update_recipe(recipes_id):
 def view_recipe(recipes_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipes_id)})
     return render_template('viewrecipe.html', recipes=the_recipe)
+    
+@app.route('/hot')    
+def hot():
+    return render_template('hot.html', recipes = mongo.db.recipes.find().sort("name"))
+    
+@app.route('/cold')    
+def cold():
+    return render_template('cold.html')
+    
+@app.route('/meat')    
+def meat():
+    return render_template('meat.html')
+    
+@app.route('/vegetarian')    
+def vegetarian():
+    return render_template('vegetarian.html')
+    
+@app.route('/vegan')    
+def vegan():
+    return render_template('vegan.html')
 
 
 @app.route('/delete_recipes/<recipes_id>')

@@ -4,19 +4,47 @@
 <div class ="row">
 
     <h3 class="header-color">Categories</h3>
-    <a href="{{url_for('add_category')}}" class="waves-effect waves-light btn">Add</a>
     <ul class="collapsible" data-collapsible="accordion">
-         {% for category in categories %}
         <li>
             <div class="collapsible-header">
-                <a href="{{url_for('delete_category', category_id=category._id)}}" class="waves-effect waves-light btn btn_small">Delete</a>
-                <a href="{{url_for('edit_category', category_id =category._id)}}" class="waves-effect waves-light btn btn_small">Edit</a>
+                <a href="{{url_for('hot')}}" class="waves-effect waves-light btn btn_small">View</a>
                 <div class="recipe_header col s9">
-                    <strong>{{category.category}}</strong>
+                    <strong>Hot</strong>
                 </div>
             </div>
         </li>
-         {% endfor %}
+        <li>
+            <div class="collapsible-header">
+                <a href="{{url_for('cold')}}" class="waves-effect waves-light btn btn_small">View</a>
+                <div class="recipe_header col s9">
+                    <strong>Cold</strong>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header">
+                <a href="{{url_for('meat')}}" class="waves-effect waves-light btn btn_small">View</a>
+                <div class="recipe_header col s9">
+                    <strong>Meat</strong>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header">
+                <a href="{{url_for('vegetarian')}}" class="waves-effect waves-light btn btn_small">View</a>
+                <div class="recipe_header col s9">
+                    <strong>Vegetarian</strong>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header">
+                <a href="{{url_for('vegan')}}" class="waves-effect waves-light btn btn_small">View</a>
+                <div class="recipe_header col s9">
+                    <strong>Vegan</strong>
+                </div>
+            </div>
+        </li>
       </ul>
 </div>
 
