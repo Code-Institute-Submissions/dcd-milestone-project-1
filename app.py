@@ -54,19 +54,19 @@ def hot():
     
 @app.route('/cold')    
 def cold():
-    return render_template('cold.html')
+    return render_template('cold.html', recipes = mongo.db.recipes.find().sort("name"))
     
 @app.route('/meat')    
 def meat():
-    return render_template('meat.html')
+    return render_template('meat.html', recipes = mongo.db.recipes.find().sort("name"))
     
 @app.route('/vegetarian')    
 def vegetarian():
-    return render_template('vegetarian.html')
+    return render_template('vegetarian.html', recipes = mongo.db.recipes.find().sort("name"))
     
 @app.route('/vegan')    
 def vegan():
-    return render_template('vegan.html')
+    return render_template('vegan.html', recipes = mongo.db.recipes.find().sort("name"))
 
 
 @app.route('/delete_recipes/<recipes_id>')
