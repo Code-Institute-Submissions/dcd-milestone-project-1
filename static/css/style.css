@@ -4,6 +4,10 @@ nav, nav ul a, a.brand-logo {
     color: #ff0000;
 }
 
+.side-nav li>a {
+    color: #ff0000;
+}
+
 .input-field label, label,input[type=text]:not(.browser-default):focus:not([readonly])+label  {
      color: #000;
    }
