@@ -109,4 +109,4 @@ def update_category(category_id):
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP', '0.0.0.0'),
         port=int(os.environ.get('PORT', 8080)),
-        debug=True)
+        debug=False)
