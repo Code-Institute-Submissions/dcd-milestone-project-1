@@ -71,6 +71,8 @@ Once I had these settings in place, I went to the Heroku app and configured and 
 
 To run this code locally, you may clone this repository from the **Clone or Download** button at the top of the page and write `git clone` followed by the cloned URL into an editor of your choosing. To cut ties with GitHub, use git remote rm origin in the terminal.
 
+The finished application can be visited [Here](https://dcd-recipe-project.herokuapp.com/)
+
 # Author
 
 [Simon Law](https://github.com/SimonLaw21)
