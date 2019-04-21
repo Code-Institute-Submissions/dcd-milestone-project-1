@@ -1,3 +1,9 @@
+/* Header */
+
+h1 {
+    text-align: center;
+}
+
 /* colors */
 nav, nav ul a, a.brand-logo {
     background-color: #000;
@@ -69,7 +75,7 @@ i.small {
     font-size: 1.5em;
 }
 
-/* text-are size */
+/* text-area size */
 
 .input-field .prefix ~ textarea {
     line-height: 1.3;
