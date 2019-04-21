@@ -68,3 +68,11 @@ footer a {
 i.small {
     font-size: 1.5em;
 }
+
+/* text-are size */
+
+.input-field .prefix ~ textarea {
+    line-height: 1.3;
+    overflow: scroll;
+    height: 200px;
+}
